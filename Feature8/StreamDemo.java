@@ -13,13 +13,14 @@ public static void main(String[] args) {
 		e.add(e1);
 		e.add(e2);
 		e.add(e3);
-		Stream<Employee> emp=e.stream();
-		System.out.println(emp);
-		Stream<String> empStream=emp.map(el->el.getName());
-		empStream.forEach(System.out::println);
-		Stream<Employee> empSalary=emp.filter(eps->eps.getSalary()>40000);
-		empSalary.forEach(System.out::println);
-		System.out.println(empStream);
+//		Stream<Employee> emp=e.stream();
+//		System.out.println(emp);
+//		Stream<String> empStream=emp.map(el->el.getName());
+//		empStream.forEach(System.out::println);
+//		Stream<Employee> empSalary=emp.filter(eps->eps.getSalary()>40000);
+//		empSalary.forEach(System.out::println);
+//		System.out.println(empStream);
+		e.stream().filter(emp->emp.getSalary()>10000).map(emp->emp.getName()).forEach(System.out::println);
 		
 }
 }
