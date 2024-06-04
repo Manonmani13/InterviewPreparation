@@ -21,6 +21,8 @@ public static void main(String[] args) {
 //		empSalary.forEach(System.out::println);
 //		System.out.println(empStream);
 		e.stream().filter(emp->emp.getSalary()>10000).map(emp->emp.getName()).forEach(System.out::println);
+		e.stream().limit(1).forEach(System.out::println);
+		e.stream().limit(3).skip(2).forEach(System.out.println);
 		
 }
 }
