@@ -14,7 +14,7 @@ public static void main(String[] args) {
 	hm.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
 	hm.keySet().stream().sorted().collect(Collectors.toSet()).forEach(System.out::println);
 	hm.keySet().stream().sorted().collect(Collectors.toList()).forEach(System.out::println);
-
-
+	Boolean b=hm.keySet().stream().anyMatch(name->name.endsWith("u"));
+System.out.println(b);
 }
 }
