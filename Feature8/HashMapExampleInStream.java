@@ -1,6 +1,7 @@
 package com.practices.java8;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class HashMapExampleInStream {
 public static void main(String[] args) {
@@ -9,5 +10,6 @@ public static void main(String[] args) {
 	hm.put("B Pandu", 10);
 	hm.put("A Maha", 30);
 	hm.keySet().stream().sorted().forEach(System.out::println);
+	hm.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
 }
 }
