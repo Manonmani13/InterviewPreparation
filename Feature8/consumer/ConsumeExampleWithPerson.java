@@ -7,10 +7,12 @@ import java.util.function.Consumer;
 public class ConsumeExampleWithPerson {
 	static Consumer<Person> c1=per->System.out.println(per);
 	static Consumer<Person> c2=per->System.out.println(per.getName().toUpperCase());
+	static List<Person> person=getAllPersons();
+
 public static void main(String[] args) {
-	List<Person> person=getAllPersons();
-	person.forEach(c1);
-	person.forEach(c1.andThen(c2));
+//	person.forEach(c1.andThen(c2));
+	printWithCondition();
+	
 	
 }
 public static  List<Person> getAllPersons()
@@ -24,5 +26,14 @@ public static  List<Person> getAllPersons()
 	ls.add(p1);ls.add(p2);
 	ls.add(p3);
 	return ls;
+}
+static void printWithCondition()
+{
+	person.forEach((per)->{
+		if(per.getSalary()>2000)
+		{
+			System.out.println(per);
+		}
+	});
 }
 }
