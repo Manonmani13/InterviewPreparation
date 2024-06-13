@@ -16,5 +16,7 @@ public class IteratorExample {
         //unordered infinit
         Stream<Double> s2=Stream.generate(supp);
         s2.forEach(System.out::println);
+                Stream.generate(new Random()::nextInt).limit(10).forEach(System.out::println);
+
     }
 }
