@@ -23,6 +23,13 @@ public class StreamMapping {
     public static void main(String[] args) {
         System.out.println(getNames());
         System.out.println(usingTerminalOperation());
+        System.out.println(countofPersons());
+    }
+    static long countofPersons()
+    {
+        return FunctionWithPerson.getAllPersonList().stream().filter(per->per.getSalary()>2000).collect(Collectors.counting());
     }
 
+
 }
+
