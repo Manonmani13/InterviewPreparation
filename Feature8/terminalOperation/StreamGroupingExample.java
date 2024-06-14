@@ -30,6 +30,16 @@ public class StreamGroupingExample {
 
     public static void main(String[] args) {
         groupByCountry();
+        twoLevelGrouping();
+    }
+    static void twoLevelGrouping()
+    {
+        Map<String,Map<String,List<Person>>> groupData=getAllPersonList().stream()
+                .collect(Collectors.groupingBy(Person::getConuntry,
+                        Collectors.groupingBy(per->per.getSalary()>2000?"Highest":"Low")));
+        Stream.of(groupData).forEach(System.out::println);
     }
 
+
 }
+
