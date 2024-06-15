@@ -10,6 +10,7 @@ public class OptionalMapExample {
         System.out.println(ofNull.isPresent()?ofNull:ofNull.isEmpty());
         ofNull.ifPresent(System.out::println);
         OptionalMapExample();
+        OptionalFilterExample();
     }
     static void OptionalMapExample(){
         Optional<Person> pers=getPersonOptional();
@@ -27,4 +28,18 @@ public class OptionalMapExample {
     {
         return new Person("Naveen",100000,"India");
     }
+    static void OptionalFlatMap(){
+        Optional<Person> person=getPersonOptional();
+        if(person.isPresent())
+        {
+//            Optional<String> per=person.flatMap(Person::getName);
+//            System.out.println(per);
+        }
+    }
+    static void OptionalFilterExample(){
+        Optional<Person> pers=getPersonOptional()
+                .filter(per->per.getSalary()>10000);
+        System.out.println(pers);
+    }
 }
+
