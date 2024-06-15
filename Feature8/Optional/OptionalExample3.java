@@ -7,6 +7,8 @@ import java.util.Optional;
 public class OptionalExample3 {
     public static void main(String[] args) {
         OrElse();
+        orElseGet();
+        OrElseThrow();
     }
     static void OrElse()
     {
@@ -17,7 +19,6 @@ public class OptionalExample3 {
 
         System.out.println(name);
 
-        orElseGet();
 
     }
     public static Optional<Person> getPersonOptional()
@@ -37,6 +38,16 @@ public class OptionalExample3 {
         });
         System.out.println(name);
     }
+    static void OrElseThrow()
+    {
+        Optional<Person> pers=getPersonOptional();
+        String name=pers.map(Person::getName).orElseThrow(()->
+            new RuntimeException( "No Record Found")
+        );
+        System.out.println("Throw "+name);
+    }
+
 
 
 }
+
