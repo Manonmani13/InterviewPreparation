@@ -4,6 +4,7 @@ import com.function.FunctionWithPerson;
 import com.function.Person;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,5 +17,10 @@ public class DefaultMethodExample {
         System.out.println(ls);
         ls.forEach(System.out::println);
         Collections.sort(ls);
+        ls.forEach(System.out::println);
+        ls.sort(Comparator.naturalOrder());
+        ls.forEach(System.out::println);
+
     }
 }
+
