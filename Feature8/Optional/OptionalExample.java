@@ -1,5 +1,6 @@
 package com.Optional;
 
+import com.function.FunctionWithPerson;
 import com.function.Person;
 
 import java.util.Optional;
@@ -27,6 +28,7 @@ public class OptionalExample {
 //        System.out.println(name1.get());
         System.out.println(name1.isPresent()?name1.get():"No data");
         System.out.println(personName(new Person("Naveen",100000,"India")));
+        System.out.println(personNameOptional(Optional.of(new Person("Naveen", 100000, "India"))));
     }
     static Optional<String> personNameOptional(Optional<Person> per)
     {
