@@ -8,11 +8,20 @@ public class ComparatorCompareToDemo implements Comparator {
         String s1=o1.toString();
         String s2=o2.toString();
         int res=s1.compareTo(s2);
+        //Ascending
+//        if(res>0)
+//            return +1;
+//        else if(res<0)
+//            return -1;
+//        else
+//            return 0;
+        //desc
         if(res>0)
-            return +1;
-        else if(res<0)
             return -1;
+        else if(res<0)
+            return +1;
         else
             return 0;
     }
 }
+
