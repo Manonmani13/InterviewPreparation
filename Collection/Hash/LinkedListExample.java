@@ -26,7 +26,12 @@ public class LinkedListExample {
         ll.add(4);
         ll.add(30);
         ll.add(30);
-
+        Object[] oh=ll.toArray();
+        for(Object o:oh)
+        {
+            System.out.println(o);
+        }
         System.out.println(ll);
     }
 }
+
