@@ -1,6 +1,8 @@
 package com.collection.Generics;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class StringMapDemo {
     public static void main(String[] args) {
@@ -20,5 +22,10 @@ public class StringMapDemo {
             }
         }
         System.out.println(hm);
+        Set<Map.Entry<Character,Integer>> se=hm.entrySet();
+        for(Map.Entry<Character,Integer> entry:se)
+        {
+            System.out.println(entry.getKey()+" : "+entry.getValue());
+        }
     }
 }
