@@ -19,10 +19,13 @@ public class HashMApIteratorExample {
         {
             Object o=i.next();
             Map.Entry e= (Map.Entry) o;
-
+            Object v= e.getValue();
+            Object k=e.getKey();
+            if(v.equals(2100))
             System.out.println(e.getKey()+" : "+e.getValue());
         }
 
 
     }
 }
+
