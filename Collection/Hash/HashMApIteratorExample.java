@@ -21,10 +21,12 @@ public class HashMApIteratorExample {
             Map.Entry e= (Map.Entry) o;
             Object v= e.getValue();
             Object k=e.getKey();
-            if(v.equals(2100))
-            System.out.println(e.getKey()+" : "+e.getValue());
+            if(v.equals(2100)){
+                e.setValue(2200);
+            }
+//            System.out.println(e.getKey()+" : "+e.getValue());
         }
-
+        System.out.println(s);
 
     }
 }
