@@ -1,6 +1,8 @@
 package com.collection.Hash;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Set;
 
 public class HashMapExample3 {
     public static void main(String[] args) {
@@ -18,6 +20,13 @@ public class HashMapExample3 {
         System.out.println(hm.containsValue(20));
         System.out.println(hm.remove("Idli"));
         System.out.println(hm);
+        hm.clear();
+        System.out.println(hm);
+        Set s=h.entrySet();
+        System.out.println(s);
+        Collection c=h.values();
+        System.out.println(c);
 
     }
 }
+
