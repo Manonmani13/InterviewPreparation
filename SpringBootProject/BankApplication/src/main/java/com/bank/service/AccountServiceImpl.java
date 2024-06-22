@@ -7,6 +7,9 @@ import com.bank.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class AccountServiceImpl implements AccountService{
 
@@ -49,6 +52,18 @@ public class AccountServiceImpl implements AccountService{
         account.setBalance(total);
         Account acc =accountRepository.save(account);
         return AccountMapper.mapToAccountDto(acc);
+    }
+
+    @Override
+    public List<AccountDto> getAllAccount() {
+        List<Account> ammounts=accountRepository.findAll();
+        return ammounts.stream().map((account -> AccountMapper.mapToAccountDto(account))).collect(Collectors.toList());
+    }
+
+    @Override
+    public void deleteAccountById(Long id) {
+        Account acc=accountRepository.findById(id).orElseThrow(()->new RuntimeException(("Account not exists")));
+        accountRepository.deleteById(id);
     }
 
 
