@@ -10,6 +10,8 @@ public class HahSetExample1 {
         set.add("Two");
         set.add("Three");
         set.add("Four");
+        set.add("Three");
+
         Iterator<String> iter= set.iterator();;
         while(iter.hasNext())
         {
