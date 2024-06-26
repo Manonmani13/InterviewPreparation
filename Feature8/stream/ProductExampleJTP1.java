@@ -17,6 +17,9 @@ public class ProductExampleJTP1 {
                 .map(p->p.price)
                 .collect(Collectors.toList());
         System.out.println(pr);
+
+        Float totalPrice=productsList.stream().map(product -> product.price).reduce(0.0f,(sum,price)->sum+price);
+        System.out.println(totalPrice);
     }
 }
 class Product{
