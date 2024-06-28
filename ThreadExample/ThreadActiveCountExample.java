@@ -25,8 +25,11 @@ public class ThreadActiveCountExample extends  Thread {
         ThreadGroup tg=new ThreadGroup("Parent Thread ");
         ThreadActiveCountExample thac=new ThreadActiveCountExample("first",tg);
         ThreadActiveCountExample thac2=new ThreadActiveCountExample("second",tg);
+        ThreadGroup tg2=new ThreadGroup("Child Thread ");
 
         System.out.println(tg.activeCount());
+        System.out.println(tg.activeGroupCount());
 
     }
 }
+
