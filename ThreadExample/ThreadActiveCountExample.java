@@ -21,14 +21,21 @@ public class ThreadActiveCountExample extends  Thread {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ThreadGroup tg=new ThreadGroup("Parent Thread ");
         ThreadActiveCountExample thac=new ThreadActiveCountExample("first",tg);
         ThreadActiveCountExample thac2=new ThreadActiveCountExample("second",tg);
         ThreadGroup tg2=new ThreadGroup("Child Thread ");
-
+//        thac.join();
+//        thac2.join();
         System.out.println(tg.activeCount());
         System.out.println(tg.activeGroupCount());
+       Thread gr[]=new Thread[tg.activeCount()];
+       int c=tg.enumerate(gr);
+       for(int i=0;i<c;i++)
+       {
+           System.out.println(gr[i].getName());
+       }
 
     }
 }
