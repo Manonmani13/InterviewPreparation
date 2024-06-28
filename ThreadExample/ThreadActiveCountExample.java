@@ -36,6 +36,7 @@ public class ThreadActiveCountExample extends  Thread {
        {
            System.out.println(gr[i].getName());
        }
+        System.out.println(tg.getMaxPriority());
 
     }
 }
