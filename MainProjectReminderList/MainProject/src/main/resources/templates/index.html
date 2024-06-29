@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Never Miss a Moment - Your Personal Reminder</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1, .header h4 {
+            color: #343a40;
+        }
+        .alert-info {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .category-btn {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        .btn-personal {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+        .btn-personal:hover {
+            background-color: #0056b3;
+        }
+        .btn-celebration {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+        }
+        .btn-celebration:hover {
+            background-color: #218838;
+        }
+        .todo-list {
+            margin-top: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .todo-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .todo-item:hover {
+            background-color: #f0f0f0;
+        }
+        .todo-item:last-child {
+            border-bottom: none;
+        }
+        .todo-item .todo-content {
+            display: flex;
+            align-items: center;
+        }
+        .todo-item .todo-check {
+            margin-right: 10px;
+        }
+        .todo-item .todo-text {
+            flex: 1;
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .add-todo {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .add-todo input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .add-todo button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .add-todo button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1>Never Miss a Moment</h1>
+        <h4>Your Personal Reminder</h4>
+    </header>
+
+    <div class="alert-info">
+        <h2>Stay Organized Every Day</h2>
+        <p>Effortlessly set alerts for appointments, deadlines, and events.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <a th:href="@{/personalreminder}" class="category-btn btn btn-personal">
+                <i class="fas fa-bell"></i> Personal Alerts
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a th:href="@{/reminders}" class="category-btn btn btn-celebration">
+                <i class="fas fa-gift"></i> Celebration Alerts
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Create Your Celebration Reminder - RemindUp</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<!-- Custom CSS -->
+	<style>
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background-color: #f8f9fa;
+		}
+		.sidebar {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 250px;
+			height: 100%;
+			background-color: #343a40;
+			color: #ffffff;
+			transition: all 0.3s;
+			overflow-y: auto;
+			z-index: 100;
+		}
+		.sidebar-heading {
+			padding: 10px 15px;
+			font-size: 1.2rem;
+			font-weight: bold;
+		}
+		.sidebar ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+		.sidebar ul li {
+			padding: 10px 15px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+		.sidebar ul li:hover {
+			background-color: #007bff;
+		}
+		.main-content {
+			margin-left: 250px;
+			padding: 20px;
+		}
+		.breadcrumb {
+			background-color: transparent;
+			padding: 8px 20px;
+			margin-bottom: 20px;
+		}
+		.breadcrumb-item {
+			font-size: 14px;
+		}
+		.breadcrumb-item.active {
+			color: #007bff;
+		}
+		.form-group {
+			margin-bottom: 20px;
+		}
+		.form-control {
+			border-radius: 4px;
+		}
+		.btn-success {
+			background-color: #28a745;
+			border-color: #28a745;
+		}
+		.btn-success:hover {
+			background-color: #218838;
+			border-color: #1e7e34;
+		}
+	</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+	<div class="sidebar-heading">Menu</div>
+	<ul>
+		<li><a  href="#" th:href="@{/}" class="text-white">Home</a></li>
+		<li><a  href="#" th:href="@{/reminders}" class="text-white">Celebration Alert</a></li>
+		<li><a href="#" th:href="@{/reminders/getAll}" class="text-white">Celebrations Alert</a></li>
+	</ul>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+	<div class="container mt-4">
+		<div class="row">
+			<div class="col-md-8">
+
+				<!-- Success message -->
+				<div th:if="${param.success}" class="alert alert-success alert-dismissible fade show">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>Success!</strong> Your celebration reminder has been successfully created.
+				</div>
+
+				<!-- Heading -->
+				<h1 class="text-center mb-4">Create Your Celebration Reminder</h1>
+
+				<!-- Reminder Form -->
+				<form th:action="@{/reminders}" method="post" th:object="${reminder}">
+					<div class="form-group">
+						<label for="Name">Name of Celebration</label>
+						<input type="text" id="Name" class="form-control" th:field="*{name}" pattern="[A-Za-z\s]{2,}" required autofocus>
+					</div>
+
+					<div class="form-group">
+						<label for="date">Date of Celebration</label>
+						<input type="date" id="date" class="form-control" th:field="*{date}" required>
+					</div>
+
+					<div class="form-group">
+						<label for="message">Message or Details</label>
+						<textarea id="message" class="form-control" th:field="*{message}" rows="4" required></textarea>
+					</div>
+
+					<div class="form-group text-center">
+						<button type="submit" class="btn btn-success btn-lg">Create Reminder</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- JavaScript dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- JavaScript to handle menu item click -->
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		const sidebarItems = document.querySelectorAll(".sidebar ul li");
+		sidebarItems.forEach(item => {
+			item.addEventListener("click", function() {
+				const link = item.querySelector("a");
+				if (link) {
+					window.location.href = link.getAttribute("href");
+				}
+			});
+		});
+	});
+</script>
+
+</body>
+</html>

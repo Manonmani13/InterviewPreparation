@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Alert - RemindUp</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #343a40;
+      color: #ffffff;
+      transition: all 0.3s;
+      overflow-y: auto;
+      z-index: 100;
+    }
+    .sidebar-heading {
+      padding: 10px 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar ul li {
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .sidebar ul li:hover {
+      background-color: #007bff;
+    }
+    .main-content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .card {
+      margin-bottom: 20px;
+      border: 1px solid rgba(0,0,0,0.125);
+      border-radius: 0.25rem;
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    }
+    .card-header {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border-bottom: none;
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+    }
+    .card-body {
+      padding: 15px;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+    .card-text {
+      color: #6c757d;
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+    .action-btns {
+      text-align: right;
+      margin-top: 10px;
+    }
+    .action-btns a {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <div class="sidebar-heading">Menu</div>
+  <ul>
+    <li><a href="#" th:href="@{/}" class="text-white">Home</a></li>
+    <li><a href="#" th:href="@{/personalreminder}" class="text-white"> Create Alert</a></li>
+    <li><a href="#" th:href="@{/personalreminder/getAll}" class="text-white"> Alerts</a></li>
+  </ul>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-header">
+          <h1> Alert</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4" th:each="reminder : ${list}">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title" th:text="${reminder.message}"></h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Date       : <span th:text="${#temporals.format(reminder.startTime, 'dd MMM yyyy')}"></span></p>
+            <p class="card-text">Start Time : <span th:text="${#temporals.format(reminder.startTime, 'HH:mm')}"></span></p>
+
+            <p class="card-text">End Time   : <span th:text="${#temporals.format(reminder.endTime, 'HH:mm')}"></span></p>
+
+            <div class="action-btns">
+              <a th:href="@{/personalreminder/showFormForUpdate/{id}(id=${reminder.id})}" class="btn btn-primary btn-sm">Update</a>
+              <a th:href="@{/personalreminder/deleteRemiders/{id}(id=${reminder.id})}" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Display message if no celebrations found -->
+    <div class="row" th:if="${#lists.isEmpty(list)}">
+      <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+          No celebrations found.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const sidebarItems = document.querySelectorAll(".sidebar ul li");
+    sidebarItems.forEach(item => {
+      item.addEventListener("click", function() {
+        const link = item.querySelector("a");
+        if (link) {
+          window.location.href = link.getAttribute("href");
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
