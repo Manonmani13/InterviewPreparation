@@ -1,5 +1,6 @@
 package com.practices.collections;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +12,8 @@ public class MapExample3 {
 
         m.put(1,"Manonmani");
         m.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(System.out::println);
+
+        m.entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.reverseOrder())).forEach(System.out::println);
 //        System.out.println(m.entrySet());
     }
 }
