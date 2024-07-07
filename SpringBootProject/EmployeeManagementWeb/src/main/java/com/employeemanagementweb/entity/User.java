@@ -6,6 +6,8 @@ import java.util.Collection;
 
 @Entity
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;
 
@@ -26,6 +28,10 @@ public class User {
         )
       )
     private Collection<Role> roles;
+
+    public User() {
+
+    }
 
     public Long getId() {
         return id;
