@@ -5,10 +5,16 @@ public class InnerClassExample {
     private class InnerClass{
         int y=10;
     }
+     static  class InnerClass2{
+        int xy=10;
+    }
 
     public static void main(String[] args) {
-        InnerClassExample inner=new InnerClassExample();
-        InnerClassExample.InnerClass innerClass=inner.new InnerClass();
-        System.out.println(inner.x+innerClass.y);
+        InnerClassExample.InnerClass2 innerClass=new InnerClassExample.InnerClass2();
+        InnerClassExample myOuter = new InnerClassExample();
+        InnerClassExample.InnerClass myInner = myOuter.new InnerClass();
+
+        System.out.println(innerClass.xy+myOuter.x);
+        System.out.println(myInner.y);
     }
 }
