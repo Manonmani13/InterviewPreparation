@@ -1,8 +1,6 @@
 package com.emp.dep.controller;
 
-import com.emp.dep.entiyt.Department;
-import com.emp.dep.entiyt.Employee;
-import com.emp.dep.entiyt.MessageResponse;
+import com.emp.dep.entiyt.*;
 import com.emp.dep.repository.EmployeeRepository;
 import org.aspectj.bridge.Message;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,32 +32,33 @@ public class EmployeeController {
                                   @PathVariable int pageSize,
                                   @PathVariable String order,
                                   @PathVariable String field) {
-        MessageResponse response=new MessageResponse();
+        MessageResponse response = new MessageResponse();
         response.setStatus("200");
         response.setMessage("Data retrieved successfully");
-        List<Employee> employeeDtos = new ArrayList<>();
 
-        Page<Employee> emp=repository.findAll(PageRequest.of(pageNo,pageSize).withSort(Sort.Direction.valueOf(order),field));
-        if(emp!=null)
-        {
-            for(Employee employee:emp.getContent())
-            {
-                Employee employeeDto = new Employee();
-                employeeDto.setId(employee.getId());
-                employeeDto.setName(employee.getName());
-                employeeDto.setSalary(employee.getSalary());
+        // Adjust pageNo for 0-based index
+        int adjustedPageNo = pageNo - 1;
 
-                Department departmentDto = new Department();
+        Page<Employee> emp = repository.findAll(PageRequest.of(adjustedPageNo, pageSize, Sort.Direction.valueOf(order), field));
 
-                if ( employee.getDepartment()!=null) {
-                    departmentDto.setId(employee.getDepartment().getId());
-                    departmentDto.setName(employee.getDepartment().getName());                employeeDto.setDepartment(departmentDto);
-                    employeeDto.setDepartment(departmentDto);
+        List<EmployeeResponse> employeeDtos = new ArrayList<>();
 
-                }
-                employeeDtos.add(employee);
+        for (Employee employee : emp.getContent()) {
+            EmployeeResponse employeeDto = new EmployeeResponse();
+            employeeDto.setId(employee.getId());
+            employeeDto.setName(employee.getName());
+            employeeDto.setSalary(employee.getSalary());
+
+            DepartmentResponse departmentDto = new DepartmentResponse();
+            if (employee.getDepartment() != null) {
+                departmentDto.setId(employee.getDepartment().getId());
+                departmentDto.setName(employee.getDepartment().getName());
+                employeeDto.setDepartment(departmentDto);
             }
+
+            employeeDtos.add(employeeDto);
         }
+
         response.setData(employeeDtos);
         return response;
     }

@@ -8,7 +8,7 @@ public class MessageResponse {
 
     private String message;
 
-    private List<Employee> data;
+    private List<EmployeeResponse> data;
 
     public String getStatus() {
         return status;
@@ -26,11 +26,11 @@ public class MessageResponse {
         this.message = message;
     }
 
-    public List<Employee> getData() {
+    public List<EmployeeResponse> getData() {
         return data;
     }
 
-    public void setData(List<Employee> data) {
+    public void setData(List<EmployeeResponse> data) {
         this.data = data;
     }
 }
