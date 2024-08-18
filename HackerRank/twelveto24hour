@@ -1,0 +1,22 @@
+public static String timeConversion(String s) {
+    // Write your code here
+            SimpleDateFormat twelveHourFormat = new SimpleDateFormat("hh:mm:ssa");
+String outputTime ="";
+        SimpleDateFormat twentyFourHourFormat = new SimpleDateFormat("HH:mm:ss");
+try {
+            // Parse the input time
+            Date date = twelveHourFormat.parse(s);
+            
+            // Format the date into the 24-hour format
+             outputTime = twentyFourHourFormat.format(date);
+            
+            // Print the result
+            System.out.println(outputTime);
+        } catch (ParseException e) {
+            // Handle parsing errors
+            System.err.println("Invalid time format");
+        }
+        return outputTime;
+    }
+
+}
