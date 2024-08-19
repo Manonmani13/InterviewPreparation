@@ -26,4 +26,9 @@ public class UserController {
     {
         return userRepository.save(user);
     }
+    @PostMapping("/save")  // Matches POST requests to /api/saveUser
+    public String saveUser() {
+        // Your logic here
+        return "User saved!";
+    }
 }
