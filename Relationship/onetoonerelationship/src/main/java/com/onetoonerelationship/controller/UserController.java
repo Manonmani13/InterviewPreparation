@@ -1,7 +1,9 @@
     package com.onetoonerelationship.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onetoonerelationship.entity.Address;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @RestController
+@RequestMapping("/api")
 public class UserController {
 
     @Autowired
@@ -20,15 +23,9 @@ public class UserController {
     AddressRepository addressRepository;
 
    
-    @PostMapping("saveUser")
-
-    public User saveuser(@RequestBody User user)
-    {
-        return userRepository.save(user);
-    }
-    @PostMapping("/save")  // Matches POST requests to /api/saveUser
-    public String saveUser() {
-        // Your logic here
-        return "User saved!";
+     @PostMapping("/saveUser")
+    public ResponseEntity<String> saveUser(@RequestBody User user) {
+        // Logic to save the user
+        return ResponseEntity.ok("User saved successfully");
     }
 }
