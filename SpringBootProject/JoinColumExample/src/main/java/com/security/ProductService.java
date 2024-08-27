@@ -10,7 +10,11 @@ public class ProductService {
     private ProductRepository productRepository;
 
     public Product saveProduct(Product product) {
-        return productRepository.save(product);
+    	 if (product.getAttributes() != null) {
+             for (Attribute attribute : product.getAttributes()) {
+                 attribute.setProduct(product);
+             }
+         }        return productRepository.save(product);
     }
 
     public Product getProduct(Long id) {
