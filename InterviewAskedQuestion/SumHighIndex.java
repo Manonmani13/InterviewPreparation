@@ -6,6 +6,7 @@ public static void main(String[] args) {
 	int N=15;
 	int sum=0;
 	int count=1;
+	int index[]=new int[10];
 	for(int i=0;i<n.length;i++)
 	{
 		for(int j=i+1;j<n.length;j++)
@@ -15,6 +16,7 @@ public static void main(String[] args) {
 			if(N==sum)
 			{
 				System.out.println(count);
+				index[i]=count;
 			}
 			if(sum>N)
 			{
@@ -24,6 +26,10 @@ public static void main(String[] args) {
 		}
 		sum=0;
 		count=1;
+	}
+	for(int i=0;i<index.length;i++)
+	{
+		System.out.println(index[i]);
 	}
 }
 }
