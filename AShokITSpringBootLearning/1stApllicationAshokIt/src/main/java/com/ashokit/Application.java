@@ -44,6 +44,7 @@ public class Application {
 		System.out.println(names);
 		Integer age=employeeRepository.findEmpAgeByEmpName("Mano");
 		System.out.println(age);
+		System.out.println(employeeRepository.getCount());
 	}
 
 }

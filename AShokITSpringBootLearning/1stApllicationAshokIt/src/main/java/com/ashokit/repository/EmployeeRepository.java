@@ -16,6 +16,8 @@ public interface EmployeeRepository  extends CrudRepository<Employee, Serializab
 		public List<Employee> findByEmpNameIn(List<String> name);
 		@Query("select empAge from Employee where empName=:name")
 		public Integer findEmpAgeByEmpName(String name);
+		@Query(value="select count(*) from employee;",nativeQuery = true)
+		public Integer getCount();
 
 
 }
