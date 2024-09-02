@@ -42,6 +42,8 @@ public class Application {
 		List<Employee> names=employeeRepository.findByEmpNameIn(Arrays.asList("Mano","Naveen"));
 		
 		System.out.println(names);
+		Integer age=employeeRepository.findEmpAgeByEmpName("Mano");
+		System.out.println(age);
 	}
 
 }
