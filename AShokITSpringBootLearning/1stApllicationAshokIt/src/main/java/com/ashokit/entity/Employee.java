@@ -5,6 +5,11 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Employee {
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", empName=" + empName + ", empAge=" + empAge + "]";
+	}
+
 	@Id
 	private Integer empId;
 	

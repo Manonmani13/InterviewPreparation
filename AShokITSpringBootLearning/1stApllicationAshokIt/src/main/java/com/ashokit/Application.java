@@ -20,6 +20,8 @@ public class Application {
 		emp.setEmpName("Mano");
 		emp.setEmpId(1);
 		employeeRepository.save(emp);
+		Employee findUser=employeeRepository.findByEmpName("Mano");
+		System.out.println(findUser);
 		
 	}
 
