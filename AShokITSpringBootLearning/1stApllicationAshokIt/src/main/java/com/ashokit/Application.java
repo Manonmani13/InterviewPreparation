@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.domain.Example;
 
 import com.ashokit.entity.Employee;
 import com.ashokit.repository.EmployeeRepository;
@@ -45,6 +46,13 @@ public class Application {
 		Integer age=employeeRepository.findEmpAgeByEmpName("Mano");
 		System.out.println(age);
 		System.out.println(employeeRepository.getCount());
+		
+		Employee e2=new Employee();
+		e2.setEmpId(1);
+		Example<Employee> re= Example.of(e2);
+		List<Employee> em=employeeRepository.findAll(re);
+		System.out.println("custom"+ em);
+		
 	}
 
 }
