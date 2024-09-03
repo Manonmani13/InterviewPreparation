@@ -11,6 +11,7 @@ public class Application {
 		ConfigurableApplicationContext context= SpringApplication.run(Application.class, args);
 		EmployeeService service=context.getBean(EmployeeService.class);
 		service.saveData();
+		context.close();
 	}
 
 }
