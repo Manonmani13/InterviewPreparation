@@ -1,13 +1,18 @@
 package com.ashokit.entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+
 
 @Entity
 public class InsurancePlan {
@@ -19,8 +24,11 @@ public class InsurancePlan {
 	
 	private  String planStatus;
 	@CreationTimestamp
-	private Date createdDate;
+	@Column(updatable = false)
+	@Temporal(TemporalType.DATE)
+    private LocalDate createdDate;
 	@UpdateTimestamp
+	@Column(insertable = false)
 	private Date updatedDate;
 	public Integer getPalnId() {
 		return palnId;
@@ -40,10 +48,10 @@ public class InsurancePlan {
 	public void setPlanStatus(String planStatus) {
 		this.planStatus = planStatus;
 	}
-	public Date getCreatedDate() {
+	public LocalDate getCreatedDate() {
 		return createdDate;
 	}
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(LocalDate createdDate) {
 		this.createdDate = createdDate;
 	}
 	public Date getUpdatedDate() {
@@ -52,7 +60,7 @@ public class InsurancePlan {
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
 	}
-	public InsurancePlan(Integer palnId, String planName, String planStatus, Date createdDate, Date updatedDate) {
+	public InsurancePlan(Integer palnId, String planName, String planStatus, LocalDate createdDate, Date updatedDate) {
 		super();
 		this.palnId = palnId;
 		this.planName = planName;
