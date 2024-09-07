@@ -1,5 +1,8 @@
 package com.ashokit.service;
 
+import java.util.Optional;
+import java.util.OptionalInt;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +29,18 @@ public class AccountService {
 		accRepo.save(ac);
 	
 	}
-
+	public void getData()
+	{
+		AccountPC  ac=new AccountPC();
+		
+		ac.setAccId(101);
+		ac.setAccType("CURRENT");
+		ac.setHolderName("IBM");
+		
+		Optional<Account> find=accRepo.findById(ac);
+		if(find.isPresent())
+		{
+			System.out.println(find.get());
+		}
+	}
 }

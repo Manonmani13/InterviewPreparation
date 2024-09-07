@@ -13,6 +13,7 @@ public class Application {
 		 ConfigurableApplicationContext context= SpringApplication.run(Application.class, args);
 		 AccountService acser=context.getBean(AccountService.class);
 		 acser.saveData();
+		 acser.getData();
 		 context.close();
 	}
  
