@@ -1,1 +1,14 @@
-<h1 class="text-success ">task works!</p>
+<div class="container">
+    <h1 class="text-success">Spring Boot + Angular CRUD</h1>
+
+    <form (ngSubmit)="createTask()">
+        <div class="row mt-5">
+            <div class="col-6">
+                <input type="text" class="form-control" [(ngModel)]="newTask.description" name="description">
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-success">Add Task</button>
+            </div>
+        </div>
+    </form>
+</div>
