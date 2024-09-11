@@ -14,4 +14,8 @@ export class TaskService {
   {
 return this.httpClient.post<Task>(this.url,newTask);
   }
+  getTask(newTask:Task):Observable<Task[]>
+  {
+return this.httpClient.get<Task[] >(this.url);
+  }
 }

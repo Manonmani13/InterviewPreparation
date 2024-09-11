@@ -11,15 +11,21 @@ import {FormsModule} from '@angular/forms'
   imports: [CommonModule,RouterOutlet,TaskComponent,FormsModule],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
-})
-export class TaskComponent {
+})export class TaskComponent {
   newTask: Task = { description: "", completed: false };
+  tasks: Task[] = [];  // Define this property
 
   constructor(private taskService: TaskService) {}
 
   createTask(): void {
     this.taskService.createTask(this.newTask).subscribe((createdTask: Task) => {
       this.newTask = { description: "", completed: false };
+    });
+  }
+
+  getAllTasks(): void {
+    this.taskService.getAllTasks().subscribe((tasks: Task[]) => {
+      this.tasks = tasks;
     });
   }
 }
