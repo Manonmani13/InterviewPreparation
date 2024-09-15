@@ -8,22 +8,15 @@
 </head>
 <body>
     <h1 id="message"></h1>
-    <!-- <script src="script.js">
-        let message=document.getElementById("message")
-        message.innerHTML="welcome buddy"
-    </script>
-     <script>
-        let message = document.getElementById("message");
-        message.innerHTML = "welcome buddy";
-    </script> -->
+    
     <div id="wrapper">
-        <h2>cm to inches</h2>
+        <h2>Farenheit to Celsius</h2>
         <div class="inputdiv">
-            <input type="text" id="input" placeholder="length in cm">
+            <input type="text" id="input" placeholder="Enter No">
 
         </div>
         <div>
-            <button type="submit" onclick="convert()">Convert to inches</button>
+            <button type="submit" onclick="convert()">Calculate Farenheit</button>
         </div>
         <div id="result">
 
@@ -33,7 +26,7 @@
         function convert()
         {
             let cmtVal = Number(document.getElementById("input").value);
-            let inchVal=cmtVal/2.54
+            let inchVal=(cmtVal-32)*5/9
         let result=document.getElementById("result")
         result.innerHTML=inchVal.toFixed(2)+" inches" //tells how decimal value you need
         }
