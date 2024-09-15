@@ -16,4 +16,12 @@ console.log("Hello")
         console.log(no==5)//value same or not only check
         console.log(no===5) //value and data type
         console.log(no!==5)//not equal check
-        console(no-1)
+        n=100
+        console.log(n>50&& n%10==0)
+        console.log("or "+n>50||n%10==0)
+
+        console.log("single "+n>50 & n%10==0)
+
+        // console(no-1)
+        let ask=prompt("what is your name");
+        console.log("hi "+ask)
