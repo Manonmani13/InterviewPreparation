@@ -24,7 +24,7 @@ import {FormsModule} from '@angular/forms'
   }
 
   getAllTasks(): void {
-    this.taskService.getAllTasks().subscribe((tasks: Task[]) => {
+    this.taskService.getTask().subscribe((tasks: Task[]) => {
       this.tasks = tasks;
     });
   }
