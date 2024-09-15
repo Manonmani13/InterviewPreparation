@@ -18,7 +18,7 @@
         console.log(Math.max(2,3,1,0))
         console.log(Math.random())
         console.log(Math.floor(Math.random()*6)+1)
-        let str1="Strive not to be a success,"
+        let str1="    Strive not to be a success,  "
         let str2="but rather to be a value"
         console.log(str1+str2)
         console.log(str1.concat(str2))
@@ -28,9 +28,18 @@
         console.log(str1.substr(1,5))//second one is length
         console.log(str1.substr(-1,5))//second one is length
         console.log(str1.replace("success","successful"))
-        console.log(str1.substr(1,5))//second one is length
+        console.log(str1.toUpperCase())
+        console.log(str1.toLowerCase())
+        console.log(str1.length)
+        console.log(str1.trim())
+        console.log(str1.trimEnd())
 
-
+        console.log(str1.trimStart())
+        let bill='Rs.23'
+        console.log(bill.padEnd(10,'22'))
+        console.log(bill.padStart(10,'22'))
+console.log(str2.charAt(1)+" "+str2[2])
+console.log(str2.charCodeAt(1))
 
     </script>
 </body>
