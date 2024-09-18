@@ -38,9 +38,12 @@
         console.log(on)
         console.log(on.unshift('1'))
         console.log(on)
-        delete on[2]
-        console.log(on)
-        console.log(on[2])
+        // delete on[2]
+        // console.log(on)
+        // console.log(on[2])// while using delte we just delete the particular valyue not dshift
+        console.log(on.splice(2,1))//shift after delte
+
+        console.log(on)//shift after delte
 
     </script>
 </body>
