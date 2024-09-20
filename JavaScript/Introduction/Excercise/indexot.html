@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Intro </title>
+</head>
+<body>
+    <h1 id="message"></h1>
+    
+    <div id="wrapper">
+        <h2>Select a City</h2>
+        <div class="inputdiv">
+            <select name="" id="input">
+                <option value="Chennai">
+                    Chennai
+                </option>
+                <option value="Madurai">
+                    Madurai
+                </option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">Show State</button>
+        </div>
+        
+    </div>
+    <script>
+        function convert()
+        {
+            let cmtVal = Number(document.getElementById("input").value);
+            let inchVal=(cmtVal-32)*5/9
+        let result=document.getElementById("result")
+        result.innerHTML=inchVal.toFixed(2)+" inches" //tells how decimal value you need
+        }
+       
+    </script>
+</body>
+</html>
