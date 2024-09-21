@@ -198,3 +198,26 @@ function outer()
 
     }
 }
+let call1=outer('Mano')
+call1()
+function makeAdder(x)
+{
+    return function(y)
+    {
+        return x+y
+    }
+}
+let add5=makeAdder(5)
+ console.log(add5(10))
+console.log(add )
+//memory management
+let bigNum=9007199254740991n
+const bigNum2=BigInt(9007199254740991)
+let b=100
+b=200
+let obj1={name:'Danya',age:24}
+let ob2=obj1
+obj1.age=25
+obj2.name='ramya'
+console.log('obj1',obj1)
+console.log('obj2',obj2)
