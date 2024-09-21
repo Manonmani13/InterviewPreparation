@@ -186,20 +186,18 @@ for( let no of n)
     }
 }
 console.log(sum)
-
-function outer()
-{
-    let outerVariable="Bread"
-    function inner()
-    {
-        let innerVariable='Butter'
-        console.log('inner variable ',innerVariable)
-        console.log('outer variable ',outerVariable)
-
+function outer() {
+    let outerVariable = "Bread";
+    function inner() {
+        let innerVariable = 'Butter';
+        console.log('inner variable:', innerVariable);
+        console.log('outer variable:', outerVariable);
     }
+    return inner; // Return the inner function
 }
-let call1=outer('Mano')
-call1()
+
+let call1 = outer(); // Now this will call outer and assign the inner function to call1
+call1();
 function makeAdder(x)
 {
     return function(y)
@@ -209,7 +207,6 @@ function makeAdder(x)
 }
 let add5=makeAdder(5)
  console.log(add5(10))
-console.log(add )
 //memory management
 let bigNum=9007199254740991n
 const bigNum2=BigInt(9007199254740991)
@@ -218,6 +215,47 @@ b=200
 let obj1={name:'Danya',age:24}
 let ob2=obj1
 obj1.age=25
-obj2.name='ramya'
+ob2.name='ramya'
 console.log('obj1',obj1)
-console.log('obj2',obj2)
+console.log('obj2',ob2)
+
+//set
+let a1=[1,2,3,2,1];
+let myset1=new Set(a1)
+console.log(a1)
+console.log(myset1)
+let myset2=new Set()
+myset2.add(4)
+myset2.add(5)
+myset2.add('pqr')
+myset2.add({'a':1,'b':2})
+myset2.add(4)
+console.log(myset2)
+console.log(myset1.has('2'))
+console.log(myset1.delete(3))
+
+let map1=new Map()
+map1.set('a',1);
+map1.set('b',2);
+map1.set('a',3);
+console.log(map1)
+console.log(map1.size)
+console.log(map1.has('c'))
+console.log(map1.delete('a'))
+map1.set('d',2)
+map1.set('e',3)
+for(let i of map1)
+{
+    console.log(i)
+}
+for(let [k,v] of map1)
+    {
+        console.log(v)
+    }
+    for(let k of map1.keys())
+    {
+        console.log(k)
+    }
+    map1.forEach((v,k)=>{
+        console.log('key',k,'value',v)
+    })
