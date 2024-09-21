@@ -46,4 +46,17 @@ while(true)
         break;
 
         }
-    }    
+    } 
+let arr=['apple','orange','graphes']   
+for(let a of arr)
+    console.log(a)
+
+let item={
+    name:'phone',
+    price:25000,
+    quantity:1
+}
+for(let key of item)
+{
+    console.log(key)
+}
