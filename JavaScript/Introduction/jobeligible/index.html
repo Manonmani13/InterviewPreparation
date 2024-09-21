@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <input type="text" id="op1" placeholder="First number"/>
+    <input type="text" id="op2" placeholder="Second number"/>
+    <input type="text" id="operator" placeholder="Operator (+, -, *, /, %)"/>
+    <button id="calculateBtn">Calculate</button>
+    <h2>Result: <span id="result"></span></h2>
+
+    <script>
+       document.getElementById('calculateBtn').addEventListener('click', function() {
+            const op1 = parseFloat(document.getElementById('op1').value);
+            const op2 = parseFloat(document.getElementById('op2').value);
+            const operator = document.getElementById('operator').value;
+            let result;
+
+            switch (operator) {
+                case '+':
+                    result = op1 + op2;
+                    break;
+                case '-':
+                    result = op1 - op2;
+                    break;
+                case '*':
+                    result = op1 * op2;
+                    break;
+                case '/':
+                    result = op2 !== 0 ? op1 / op2 : 'Error (divide by zero)';
+                    break;
+                case '%':
+                    result = op1 % op2;
+                    break;
+                default:
+                    result = 'Invalid operator';
+            }
+
+            document.getElementById('result').innerText = result;
+        });
+          
+    </script>
+</body>
+</html>"
