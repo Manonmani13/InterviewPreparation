@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Intro</title>
+</head>
+<body>
+    <h1 id="message"></h1>
+    
+    <select id="itemDropdown">
+        <option value="" disabled selected>Select an item</option>
+    </select>
+    <button id="submitBtn">Submit</button>
+    <p id="result"></p>
+
+    <script>
+        const dropdown = document.getElementById("itemDropdown");
+
+        // Array of items
+        let arr = ['ECE', 'CSE', 'IT', 'EEE', 'MECH', 'CIVIL'];
+
+        // Function to convert array to dropdown
+        function convert() {
+            for (let a of arr) {
+                const option = document.createElement("option"); // Corrected: specify the tag name
+                option.value = a.toLowerCase(); // Set the value to lowercase
+                option.textContent = a; // Set the display text
+                dropdown.appendChild(option); // Append the option to the dropdown
+            }
+        }
+
+        // Call the function to populate the dropdown
+        convert();
+
+        const result = document.getElementById("result");
+        document.getElementById("submitBtn").addEventListener("click", function() {
+            const selectedValue = dropdown.value;
+            result.innerText = `You selected: ${selectedValue}`;
+        });
+    </script>
+</body>
+</html>
