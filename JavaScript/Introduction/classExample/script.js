@@ -31,10 +31,23 @@ userOne.logout()
 
 //inheritance
 class PaidUser extends User{
+    constructor(name,age)
+    {
+        super(name,age)
+        storage=100
+    }
     message()
     {
         console.log("you have 100GB Free ")
     }
+    //overriding
+    login()
+    {
+        console.log("Thank you for login")
+        return this;
+    }
 }
-let paidUser1=new PaidUser();
+let paidUser1=new PaidUser('Mano',23);
 paidUser1.message()
+//method chaining
+paidUser1.login().message()
