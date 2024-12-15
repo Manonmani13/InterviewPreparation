@@ -1,30 +1,20 @@
- Stack<Character> stack = new Stack<>();
-
-        // Iterate through each character in the string
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-
-            // If it's an opening bracket, push to the stack
-            if (ch == '{' || ch == '(' || ch == '[') {
-                stack.push(ch);
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+                HashMap<Integer, Integer> map = new HashMap<>();
+ for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            
+            // Check if the complement exists in the map
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i}; // Return the indices of the pair
             }
-            // If it's a closing bracket
-            else if (ch == '}' || ch == ')' || ch == ']') {
-                // If stack is empty or top of stack doesn't match, return false
-                if (stack.isEmpty()) {
-                    return false;
-                }
-
-                char top = stack.pop();
-
-                // Check for matching pairs
-                if ((ch == '}' && top != '{') || 
-                    (ch == ')' && top != '(') || 
-                    (ch == ']' && top != '[')) {
-                    return false;
-                }
-            }
+            
+            // Add the current number to the map with its index
+            map.put(nums[i], i);
         }
-
-        // If stack is empty, all brackets matched; otherwise, it's unbalanced
-        return stack.isEmpty();
+        
+        // Return an empty array if no solution is found (shouldn't happen given valid input)
+        return new int[]{};
+        
+    }
+}
